@@ -1,3 +1,4 @@
+import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatIllegalArgumentException
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
@@ -27,6 +28,7 @@ class ExpressionCarculatorTest {
     @DisplayName(value = "공백제거 테스트")
     public fun blankDeleteTest() {
         val inputExpression = "1 + 2"
-        val expressionCalculator = ExpressionCalculator(inputExpression)
+        val testExpression = "1+2"
+        assertThat(ExpressionCalculator(inputExpression)).isEqualTo(ExpressionCalculator(inputExpression))
     }
 }
