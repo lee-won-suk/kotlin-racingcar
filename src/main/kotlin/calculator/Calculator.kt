@@ -1,3 +1,5 @@
+package calculator
+
 import kotlin.math.floor
 
 enum class Calculator(val symbol: String) {

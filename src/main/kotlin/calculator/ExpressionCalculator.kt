@@ -1,9 +1,16 @@
+package calculator
+
 class ExpressionCalculator(inputExpression: String?) {
     private var inputExpression: String? = ""
+    private lateinit var splitedExpression: SplitedExpression
 
     init {
         validateExpression(inputExpression)
         deleteBlank(inputExpression)
+        SplitedExpression(inputExpression)
+    }
+
+    private fun splitNumbersAndOperators(inputExpression: String?) {
     }
 
     private fun validateExpression(inputExpression: String?) {
@@ -28,4 +35,8 @@ class ExpressionCalculator(inputExpression: String?) {
     override fun hashCode(): Int {
         return inputExpression?.hashCode() ?: 0
     }
+/*
+    fun calculate(): Int {
+
+    }*/
 }

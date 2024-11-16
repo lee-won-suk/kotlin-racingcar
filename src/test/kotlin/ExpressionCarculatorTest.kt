@@ -1,3 +1,4 @@
+import calculator.ExpressionCalculator
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatIllegalArgumentException
 import org.junit.jupiter.api.DisplayName
@@ -31,4 +32,12 @@ class ExpressionCarculatorTest {
         val testExpression = "1+2"
         assertThat(ExpressionCalculator(inputExpression)).isEqualTo(ExpressionCalculator(inputExpression))
     }
+
+  /*  @ParameterizedTest
+    @DisplayName(value = "계산값 테스트")
+    @CsvSource(value = ["1 + 2 * 3,9"])
+    public fun calculateTest(inputExpression: String, result: Int) {
+        var expressionCalculator = ExpressionCalculator(inputExpression)
+        assertThat(expressionCalculator.calculate()).isEqualTo(result)
+    }*/
 }
