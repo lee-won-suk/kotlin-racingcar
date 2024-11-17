@@ -11,6 +11,9 @@ enum class Calculator(val symbol: String) {
             return deFaultNumber + plusNumber
         }
     },
+
+
+
     SUBSTRACT("-") {
         override fun execute(
             deFaultNumber: Int,
