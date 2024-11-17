@@ -26,18 +26,19 @@ class ExpressionCarculatorTest {
     }
 
     @Test
+    @DisplayName(value = "숫자 및 사칙연산 이외 기호 존재시 Illegal에러 호출해야 한다.")
+    public fun wrongExpressionTest() {
+        val inputExpression = "@#$2"
+        assertThatIllegalArgumentException().isThrownBy {
+            ExpressionCalculator(inputExpression)
+        }
+    }
+
+    @Test
     @DisplayName(value = "공백제거 테스트")
     public fun blankDeleteTest() {
         val inputExpression = "1 + 2"
         val testExpression = "1+2"
-        assertThat(ExpressionCalculator(inputExpression)).isEqualTo(ExpressionCalculator(inputExpression))
+        assertThat(ExpressionCalculator(inputExpression)).isEqualTo(ExpressionCalculator(testExpression))
     }
-
-  /*  @ParameterizedTest
-    @DisplayName(value = "계산값 테스트")
-    @CsvSource(value = ["1 + 2 * 3,9"])
-    public fun calculateTest(inputExpression: String, result: Int) {
-        var expressionCalculator = ExpressionCalculator(inputExpression)
-        assertThat(expressionCalculator.calculate()).isEqualTo(result)
-    }*/
 }

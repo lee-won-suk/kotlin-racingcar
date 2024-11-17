@@ -1,26 +1,32 @@
 package calculator
 
 class ExpressionCalculator(inputExpression: String?) {
-    private var inputExpression: String? = ""
-    private lateinit var splitedExpression: SplitedExpression
+    private var expression: String? = ""
+    private var splitedExpression: SplitedExpression
 
     init {
-        validateExpression(inputExpression)
-        deleteBlank(inputExpression)
-        SplitedExpression(inputExpression)
-    }
-
-    private fun splitNumbersAndOperators(inputExpression: String?) {
+        expression = inputExpression
+        validateExpression(expression)
+        deleteBlank()
+        splitedExpression = SplitedExpression(expression)
     }
 
     private fun validateExpression(inputExpression: String?) {
-        if (inputExpression.isNullOrEmpty() || inputExpression.none { it in "+-*/" }) {
+        val nonPassRegex = "[^0-9+\\-*/ ]".toRegex()
+        val operandRegex = "+-*/"
+        if (inputExpression.isNullOrEmpty() || inputExpression.none { it in operandRegex } ||
+            nonPassRegex.containsMatchIn(inputExpression)
+        ) {
             throw IllegalArgumentException()
         }
     }
 
-    private fun deleteBlank(inputExpression: String?) {
-        this.inputExpression = inputExpression!!.trim()
+    private fun deleteBlank() {
+        this.expression = expression!!.replace(" ", "")
+    }
+
+    fun calculateResult(): Int {
+        return splitedExpression.calculateResult()
     }
 
     override fun equals(other: Any?): Boolean {
@@ -29,14 +35,10 @@ class ExpressionCalculator(inputExpression: String?) {
 
         other as ExpressionCalculator
 
-        return inputExpression == other.inputExpression
+        return expression == other.expression
     }
 
     override fun hashCode(): Int {
-        return inputExpression?.hashCode() ?: 0
+        return expression?.hashCode() ?: 0
     }
-/*
-    fun calculate(): Int {
-
-    }*/
 }

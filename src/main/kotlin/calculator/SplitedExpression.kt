@@ -1,12 +1,24 @@
 package calculator
 
-class SplitedExpression {
-    val numbers: MutableList<Int> = mutableListOf()
+private const val FIRST_INDEX = 0
+private const val SECOND_NUMBER_INDEX = 1
 
-    constructor(inputExpression: String?) {
-        // TODO enum 만들어서 숫자인지 사칙연산인지 분기하기
+class SplitedExpression(inputExpression: String?) {
+    val numbers: MutableList<String> = mutableListOf()
 
-        /*inputExpression.forEach { char ->
-        }*/
+    init {
+        inputExpression?.forEach { char ->
+            numbers.add(char.toString())
+        }
+    }
+
+    fun calculateResult(): Int {
+        var calculateResult = numbers.removeAt(FIRST_INDEX).toInt()
+        numbers.chunked(2).forEach { pair ->
+            val carculation = pair[FIRST_INDEX]
+            val secondNumber = pair[SECOND_NUMBER_INDEX]
+            calculateResult = Calculator.calculate(carculation, calculateResult, secondNumber.toInt())
+        }
+        return calculateResult
     }
 }
