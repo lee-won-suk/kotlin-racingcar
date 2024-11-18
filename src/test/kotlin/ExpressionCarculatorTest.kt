@@ -10,7 +10,7 @@ class ExpressionCarculatorTest {
     @ParameterizedTest
     @DisplayName(value = "null, 공백 테스트")
     @NullAndEmptySource()
-    public fun blankDeleteTest(inputExpression: String?) {
+    fun blankDeleteTest(inputExpression: String?) {
         assertThatIllegalArgumentException().isThrownBy {
             ExpressionCalculator(inputExpression)
         }
@@ -18,7 +18,7 @@ class ExpressionCarculatorTest {
 
     @Test
     @DisplayName(value = "사칙연산 미존재시 Illegal에러 호출해야 한다.")
-    public fun nonExpressionTest() {
+    fun nonExpressionTest() {
         val inputExpression = "1 2 3"
         assertThatIllegalArgumentException().isThrownBy {
             ExpressionCalculator(inputExpression)
@@ -27,7 +27,7 @@ class ExpressionCarculatorTest {
 
     @Test
     @DisplayName(value = "숫자 및 사칙연산 이외 기호 존재시 Illegal에러 호출해야 한다.")
-    public fun wrongExpressionTest() {
+    fun wrongExpressionTest() {
         val inputExpression = "@#$2"
         assertThatIllegalArgumentException().isThrownBy {
             ExpressionCalculator(inputExpression)
