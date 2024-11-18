@@ -3,10 +3,9 @@ package calculator
 private const val FIRST_INDEX = 0
 private const val SECOND_NUMBER_INDEX = 1
 
-class SplitedExpression(inputExpression: String?) {
-    val numbers: MutableList<String> = mutableListOf()
+data class SplitedExpression(val numbers: MutableList<String>) {
 
-    init {
+    constructor(inputExpression: String?) : this(mutableListOf()) {
         inputExpression?.forEach { char ->
             numbers.add(char.toString())
         }
