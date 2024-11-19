@@ -39,9 +39,6 @@ class ExpressionCarculatorTest {
     public fun blankDeleteTest() {
         val inputExpression = "1 + 2"
         val testExpression = "1+2"
-        val a = ExpressionCalculator(inputExpression)
-        val b = ExpressionCalculator(testExpression)
-
         assertThat(ExpressionCalculator(inputExpression)).isEqualTo(ExpressionCalculator(testExpression))
     }
 
