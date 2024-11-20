@@ -1,4 +1,5 @@
-import calculator.ExpressionCalculator
+package calculator
+
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.Assertions.assertThatIllegalArgumentException
 import org.junit.jupiter.api.DisplayName

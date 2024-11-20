@@ -1,5 +1,5 @@
-import calculator.Calculator
-import calculator.RefactoringCalculator
+package calculator
+
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.params.ParameterizedTest
@@ -60,18 +60,6 @@ class CalculatorTest {
         resultNumber: Int,
     ) {
         assertThat(Calculator.calculate(calculation, firstOperand, secondOperand)).isEqualTo(resultNumber)
-    }
-
-    @ParameterizedTest
-    @DisplayName(value = "연산자로 구분해서 연산을 진행한다")
-    @CsvSource(value = ["+,1,2,3"])
-    public fun refactorCalculateTest(
-        calculation: String,
-        firstOperand: Int,
-        secondOperand: Int,
-        resultNumber: Int,
-    ) {
-        assertThat(RefactoringCalculator.calculate(calculation, firstOperand, secondOperand)).isEqualTo(resultNumber)
     }
 
 }

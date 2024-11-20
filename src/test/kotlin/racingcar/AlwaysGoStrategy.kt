@@ -1,4 +1,4 @@
-import racingcar.MovingStrategy
+package racingcar
 
 class AlwaysGoStrategy : MovingStrategy {
     override fun createNumber(): Int {
