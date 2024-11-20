@@ -1,7 +1,6 @@
 package racingcar
 
-data class Car(var startDistance: Int) {
-    var movingDistance: Int = startDistance
+data class Car(var movingDistance : Int) {
 
     fun run(tryCount: Int, movingStrategy: MovingStrategy) {
         (1 ..tryCount).forEach { i ->

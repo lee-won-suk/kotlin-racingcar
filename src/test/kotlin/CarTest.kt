@@ -9,10 +9,10 @@ class CarTest {
     @Test
     @DisplayName(value = "4이상이면 전진한다.")
     fun moveLogicTest()  {
-        var car = Car(0)
-        var testCar = Car(1)
+        val car = Car(0)
+        val testCar = Car(1)
         val tryCount = 1
         car.run(tryCount, AlwaysGoStrategy())
-        assertThat(car).isEqualTo(testCar)
+        assertThat(car == testCar).isTrue()
     }
 }
