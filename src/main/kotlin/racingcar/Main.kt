@@ -1,13 +1,13 @@
 package racingcar
 
+import racingcar.ui.InputView
+import racingcar.ui.ResultView
+
 fun main() {
-    println("자동차 대수는 몇 대인가요?")
-    val number = readLine()?.toInt() ?: 0
+
+    val number = InputView.insertCarCount()
     val cars = Cars(number)
-    val startegy = RandomStrategy()
-    println("시도할 횟수는 몇 회인가요?")
-    val movingCount = readLine()?.toInt() ?: 0
-    
-    cars.run(movingCount, startegy)
-    println(cars)
+    val movingCount = InputView.insertRunCount()
+    cars.run(movingCount, RandomStrategy())
+    ResultView.printResult(cars.carsCount(), movingCount)
 }
