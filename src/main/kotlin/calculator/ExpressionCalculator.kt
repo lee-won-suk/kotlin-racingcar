@@ -1,12 +1,9 @@
 package calculator
 
-class ExpressionCalculator(inputExpression: String?) {
-    private var expression: String? = ""
-    private var splitedExpression: SplitedExpression
-
-    init {
+data class ExpressionCalculator(var expression: String?, var splitedExpression: SplitedExpression) {
+    constructor(inputExpression: String?) : this("",SplitedExpression("") ) {
+        validateExpression(inputExpression)
         expression = inputExpression
-        validateExpression(expression)
         deleteBlank()
         splitedExpression = SplitedExpression(expression)
     }
@@ -22,23 +19,11 @@ class ExpressionCalculator(inputExpression: String?) {
     }
 
     private fun deleteBlank() {
-        this.expression = expression!!.replace(" ", "")
+        this.expression = expression?.replace(" ", "")
     }
 
     fun calculateResult(): Int {
         return splitedExpression.calculateResult()
     }
 
-    override fun equals(other: Any?): Boolean {
-        if (this === other) return true
-        if (javaClass != other?.javaClass) return false
-
-        other as ExpressionCalculator
-
-        return expression == other.expression
-    }
-
-    override fun hashCode(): Int {
-        return expression?.hashCode() ?: 0
-    }
 }

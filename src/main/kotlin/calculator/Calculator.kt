@@ -2,39 +2,11 @@ package calculator
 
 import kotlin.math.floor
 
-enum class Calculator(val symbol: String) {
-    ADD("+") {
-        override fun execute(
-            deFaultNumber: Int,
-            plusNumber: Int,
-        ): Int {
-            return deFaultNumber + plusNumber
-        }
-    },
-    SUBSTRACT("-") {
-        override fun execute(
-            deFaultNumber: Int,
-            plusNumber: Int,
-        ): Int {
-            return deFaultNumber - plusNumber
-        }
-    },
-    MULTIPLY("*") {
-        override fun execute(
-            deFaultNumber: Int,
-            plusNumber: Int,
-        ): Int {
-            return deFaultNumber * plusNumber
-        }
-    },
-    DEVIDE("/") {
-        override fun execute(
-            deFaultNumber: Int,
-            plusNumber: Int,
-        ): Int {
-            return floor(deFaultNumber.toDouble() / plusNumber).toInt()
-        }
-    }, ;
+enum class Calculator(val symbol: String, val execute: (Int, Int) -> Int) {
+    ADD("+", { number1, number2 -> number1 + number2 }),
+    SUBSTRACT("-", { number1, number2 -> number1 - number2 }),
+    MULTIPLY("*", { number1, number2 -> number1 * number2 }),
+    DEVIDE("/", { number1, number2 -> floor(number1.toDouble() / number2).toInt() });
 
     companion object {
         fun calculate(
@@ -43,7 +15,7 @@ enum class Calculator(val symbol: String) {
             secondOperand: Int,
         ): Int {
             for (calculator in entries) {
-                if (calculator.symbol.equals(calculation)) {
+                if (calculator.symbol == calculation) {
                     return calculator.execute(firstOperand, secondOperand)
                 }
             }
@@ -51,8 +23,4 @@ enum class Calculator(val symbol: String) {
         }
     }
 
-    abstract fun execute(
-        deFaultNumber: Int,
-        plusNumber: Int,
-    ): Int
 }
