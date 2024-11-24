@@ -5,7 +5,7 @@ import racingcar.Car
 object ResultView {
     //시도회수를 받고 그 회수 만큼
     fun printResult(cars: List<Car>, movingCount: Int) {
-        val convertedCarsCount = MutableList(movingCount) { "" }
+        val convertedCarsCount = MutableList(cars.size) { "" }
         repeat(movingCount) {
             cars.forEachIndexed { carIndex, car ->
                 if (car.movingDistance() > it) {
