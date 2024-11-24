@@ -6,7 +6,7 @@ data class Cars(private val cars: List<Car>) {
         cars = racingCarCount.createCars(movingStrategy)
     )
 
-    fun carsCount(): List<Int> {
-        return List(cars.size) { cars[it].movingDistance() }
+    fun getCars(): List<Car> {
+        return cars
     }
 }

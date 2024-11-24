@@ -1,16 +1,17 @@
 package racingcar.ui
 
+import racingcar.Car
+
 object ResultView {
     //시도회수를 받고 그 회수 만큼
-    fun printResult(carsCount: List<Int>, movingCount: Int) {
+    fun printResult(cars: List<Car>, movingCount: Int) {
         val convertedCarsCount = MutableList(movingCount) { "" }
         repeat(movingCount) {
-            carsCount.forEachIndexed { carIndex, carCount ->
-                if (it <= carCount) {
-                    val currentCount = convertedCarsCount[carIndex] + "-"
-                    convertedCarsCount[carIndex] = currentCount
+            cars.forEachIndexed { carIndex, car ->
+                if (car.movingDistance() > it) {
+                    convertedCarsCount[carIndex] += "-"
                 }
-                println(convertedCarsCount[carIndex])
+                println("${car.carName()} : ${convertedCarsCount[carIndex]}")
             }
             println()
         }
