@@ -1,6 +1,6 @@
 package racingcar
 
-data class Car(private val movingDistance: Int) {
+data class Car(private val carName : String, private val movingDistance: Int) {
     fun movingDistance(): Int {
         return movingDistance
     }
