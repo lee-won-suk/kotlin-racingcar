@@ -21,5 +21,15 @@ object MovingDistance {
         return STOP
     }
 
+    fun winnerDistance(cars : List<Car>) : Int {
+        var winnerDistance = 0;
+        repeat(cars.size) {
+            if (cars[it].movingDistance() >= winnerDistance) {
+                winnerDistance = cars[it].movingDistance()
+            }
+        }
+        return winnerDistance
+    }
+
 
 }
