@@ -8,4 +8,6 @@ fun main() {
     val movingCount = InputView.insertRunCount()
     val cars = Cars(RacingCarCount(names, movingCount), RandomStrategy)
     ResultView.printResult(cars.getCars(), movingCount)
+    ResultView.printWinner(cars.findWinner())
+
 }

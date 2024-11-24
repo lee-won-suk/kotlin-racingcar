@@ -9,7 +9,7 @@ class WinningCarTest {
         val testCarList = listOf(Car("red",2),Car("blue",2),
             Car("kaki",1))
         val winningList = listOf(Car("red",2),Car("blue",2))
-        assertThat(WinningCar.create(testCarList)).isEqualTo(WinningCar(winningList))
-
+        val cars = Cars(testCarList)
+        assertThat(cars.findWinner()).isEqualTo(winningList)
     }
 }

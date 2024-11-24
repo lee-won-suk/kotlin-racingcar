@@ -17,5 +17,11 @@ object ResultView {
         }
 
     }
+
+    fun printWinner(findWinner: List<Car>) {
+
+        println("${findWinner.joinToString(separator = ",") {it.carName()}}가 최종 우승했습니다.")
+
+    }
 }
 

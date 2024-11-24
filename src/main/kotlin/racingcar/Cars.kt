@@ -1,5 +1,7 @@
 package racingcar
 
+import racingcar.MovingDistance.winnerDistance
+
 data class Cars(private val cars: List<Car>) {
 
     constructor(racingCarCount:RacingCarCount, movingStrategy: MovingStrategy) : this(
@@ -10,5 +12,9 @@ data class Cars(private val cars: List<Car>) {
         return cars
     }
 
+    fun findWinner(): List<Car> {
+        return cars.stream().filter { it.movingDistance() == winnerDistance(cars) }
+            .toList()
+    }
 
 }
