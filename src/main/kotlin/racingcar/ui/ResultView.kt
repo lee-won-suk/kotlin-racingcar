@@ -11,7 +11,7 @@ object ResultView {
                 if (car.movingDistance() > it) {
                     convertedCarsCount[carIndex] += "-"
                 }
-                println("${car.carName()} : ${convertedCarsCount[carIndex]}")
+                println("${car.carName} : ${convertedCarsCount[carIndex]}")
             }
             println()
         }
@@ -19,9 +19,7 @@ object ResultView {
     }
 
     fun printWinner(findWinner: List<Car>) {
-
-        println("${findWinner.joinToString(separator = ",") {it.carName()}}가 최종 우승했습니다.")
-
+        println("${findWinner.joinToString(separator = ",") { it.carName }}가 최종 우승했습니다.")
     }
 }
 

@@ -2,19 +2,24 @@ package racingcar
 
 import racingcar.MovingDistance.winnerDistance
 
-data class Cars(private val cars: List<Car>) {
-
-    constructor(racingCarCount:RacingCarCount, movingStrategy: MovingStrategy) : this(
-        cars = racingCarCount.createCars(movingStrategy)
-    )
-
-    fun getCars(): List<Car> {
-        return cars
-    }
+data class Cars(val cars: List<Car>) {
 
     fun findWinner(): List<Car> {
-        return cars.stream().filter { it.movingDistance() == winnerDistance(cars) }
+        return cars.filter { it.movingDistance() == winnerDistance(cars) }
             .toList()
+    }
+
+    companion object {
+        fun runRacingCars(carNamesAndRunCount: CarNamesAndRunCount, movingStrategy: MovingStrategy): Cars {
+            return Cars(
+                carNamesAndRunCount.carNames.map { carName ->
+                    Car(
+                        carName,
+                        MovingDistance.startRacing(carNamesAndRunCount.movingCount, movingStrategy)
+                    )
+                }
+            )
+        }
     }
 
 }
