@@ -4,10 +4,10 @@ import racingcar.ui.InputView
 import racingcar.ui.ResultView
 
 fun main() {
-
-    val number = InputView.insertCarCount()
-    val cars = Cars(number)
+    val names = InputView.insertCarNames()
     val movingCount = InputView.insertRunCount()
-    cars.run(movingCount, RandomStrategy())
-    ResultView.printResult(cars.carsCount(), movingCount)
+    val cars = Cars(RacingCarCount(names, movingCount), RandomStrategy)
+    ResultView.printResult(cars.getCars(), movingCount)
+    ResultView.printWinner(cars.findWinner())
+
 }
