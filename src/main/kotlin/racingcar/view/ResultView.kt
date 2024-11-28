@@ -1,6 +1,6 @@
-package racingcar.ui
+package racingcar.view
 
-import racingcar.Car
+import racingcar.domain.Car
 
 object ResultView {
     //시도회수를 받고 그 회수 만큼

@@ -1,6 +1,6 @@
-package racingcar
+package racingcar.domain
 
-import racingcar.MovingDistance.winnerDistance
+import racingcar.domain.MovingDistance.winnerDistance
 
 data class Cars(val cars: List<Car>) {
 
@@ -10,12 +10,12 @@ data class Cars(val cars: List<Car>) {
     }
 
     companion object {
-        fun runRacingCars(carNamesAndRunCount: CarNamesAndRunCount, movingStrategy: MovingStrategy): Cars {
+        fun runRacingCars(carNamesAndRunCount: CarNamesAndRunCount, numberCreator: NumberCreator): Cars {
             return Cars(
                 carNamesAndRunCount.carNames.map { carName ->
                     Car(
                         carName,
-                        MovingDistance.startRacing(carNamesAndRunCount.movingCount, movingStrategy)
+                        MovingDistance.startRacing(carNamesAndRunCount.movingCount, numberCreator)
                     )
                 }
             )

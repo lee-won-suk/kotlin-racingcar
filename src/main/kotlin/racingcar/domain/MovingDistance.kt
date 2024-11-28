@@ -1,4 +1,4 @@
-package racingcar
+package racingcar.domain
 
 
 object MovingDistance {
@@ -6,10 +6,10 @@ object MovingDistance {
     const val GO = 1
     const val STOP = 0
 
-    fun startRacing(tryCount: Int, movingStrategy: MovingStrategy): Int {
+    fun startRacing(tryCount: Int, numberCreator: NumberCreator): Int {
         var movingDistance = 0
         repeat(tryCount) {
-            movingDistance += moveDecision(movingStrategy.createNumber())
+            movingDistance += moveDecision(numberCreator.createNumber())
         }
         return movingDistance
     }

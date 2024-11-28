@@ -1,4 +1,4 @@
-package racingcar
+package racingcar.domain
 
 data class CarNamesAndRunCount(val carNames: List<String>, val movingCount: Int) {
 
