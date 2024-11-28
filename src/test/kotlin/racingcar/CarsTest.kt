@@ -8,7 +8,6 @@ import racingcar.domain.Cars
 import racingcar.domain.NumberCreator
 
 class CarsTest {
-
     @Test
     fun carCountTest() {
         val names = "red,blue"
@@ -20,10 +19,12 @@ class CarsTest {
 
     @Test
     fun createWinningCarListTest() {
-        val testCarList = listOf(
-            Car("red", 2), Car("blue", 2),
-            Car("kaki", 1)
-        )
+        val testCarList =
+            listOf(
+                Car("red", 2),
+                Car("blue", 2),
+                Car("kaki", 1),
+            )
         val winningList = listOf(Car("red", 2), Car("blue", 2))
         val cars = Cars(testCarList)
         assertThat(cars.findWinner()).isEqualTo(winningList)

@@ -13,5 +13,4 @@ fun main() {
     val cars = Cars.runRacingCars(CarNamesAndRunCount(names, movingCount), NumberCreator(RandomStrategy))
     ResultView.printResult(cars.cars, movingCount)
     ResultView.printWinner(cars.findWinner())
-
 }

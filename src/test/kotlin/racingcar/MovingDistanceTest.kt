@@ -14,4 +14,3 @@ class MovingDistanceTest {
         assertThat(MovingDistance.moveDecision(MIN_RUN_NUMBER)).isEqualTo(GO)
     }
 }
-

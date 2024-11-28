@@ -20,9 +20,8 @@ class CarNamesAndRunCountTest {
         fun testList(): Stream<List<String>> {
             return Stream.of(
                 listOf("red", "blue"),
-                emptyList()
+                emptyList(),
             )
         }
     }
-
 }
