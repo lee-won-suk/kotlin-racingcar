@@ -2,13 +2,17 @@ package racingcar
 
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
+import racingcar.domain.Car
+import racingcar.domain.CarNamesAndRunCount
+import racingcar.domain.Cars
+import racingcar.domain.NumberCreator
 
 class CarsTest {
 
     @Test
     fun carCountTest() {
         val names = "red,blue"
-        val cars = Cars.runRacingCars(CarNamesAndRunCount(names.split(","), 1), AlwaysGoStrategy())
+        val cars = Cars.runRacingCars(CarNamesAndRunCount(names.split(","), 1), NumberCreator(AlwaysGoStrategy))
         val testCarList = listOf(Car("red", 1), Car("blue", 1))
         val testCars = Cars(testCarList)
         assertThat(cars).isEqualTo(testCars)
