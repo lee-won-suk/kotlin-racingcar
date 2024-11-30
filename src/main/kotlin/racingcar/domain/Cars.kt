@@ -21,22 +21,4 @@ data class Cars(val cars: List<Car>) {
             )
         },
     )
-
-    companion object {
-        fun runRacingCars(
-            carNames: List<String>,
-            movingCount: Int,
-            movingStrategy: MovingStrategy,
-        ): Cars {
-            return Cars(
-                carNames.map { carName ->
-                    Car(
-                        carName,
-                        movingCount,
-                        movingStrategy,
-                    )
-                },
-            )
-        }
-    }
 }
