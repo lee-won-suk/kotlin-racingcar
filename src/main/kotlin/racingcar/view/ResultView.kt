@@ -11,7 +11,7 @@ object ResultView {
         val convertedCarsCount = MutableList(cars.size) { "" }
         repeat(movingCount) {
             cars.forEachIndexed { carIndex, car ->
-                if (car.movingDistance() > it) {
+                if (car.movingDistance > it) {
                     convertedCarsCount[carIndex] += "-"
                 }
                 println("${car.carName} : ${convertedCarsCount[carIndex]}")

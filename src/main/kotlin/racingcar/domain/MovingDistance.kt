@@ -7,11 +7,11 @@ object MovingDistance {
 
     fun startRacing(
         tryCount: Int,
-        numberCreator: NumberCreator,
+        movingStrategy: MovingStrategy,
     ): Int {
         var movingDistance = 0
         repeat(tryCount) {
-            movingDistance += moveDecision(numberCreator.createNumber())
+            movingDistance += moveDecision(movingStrategy.createNumber())
         }
         return movingDistance
     }
@@ -26,8 +26,8 @@ object MovingDistance {
     fun winnerDistance(cars: List<Car>): Int {
         var winnerDistance = 0
         repeat(cars.size) {
-            if (cars[it].movingDistance() >= winnerDistance) {
-                winnerDistance = cars[it].movingDistance()
+            if (cars[it].movingDistance >= winnerDistance) {
+                winnerDistance = cars[it].movingDistance
             }
         }
         return winnerDistance

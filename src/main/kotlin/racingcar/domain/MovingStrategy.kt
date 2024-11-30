@@ -1,5 +1,5 @@
 package racingcar.domain
 
-interface MovingStrategy {
+fun interface MovingStrategy {
     fun createNumber(): Int
 }
